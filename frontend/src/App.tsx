@@ -9,6 +9,7 @@ import { Products } from './pages/Products';
 import { Purchases } from './pages/Purchases';
 import { Reclamations } from './pages/Reclamations';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { AddProduct } from './pages/AddProduct';
 
 function App() {
   return (
@@ -51,6 +52,16 @@ function App() {
               <ProtectedRoute requireAdmin>
                 <Layout>
                   <AdminDashboard />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/add-product"
+            element={
+              <ProtectedRoute requireAdmin>
+                <Layout>
+                  <AddProduct />
                 </Layout>
               </ProtectedRoute>
             }
