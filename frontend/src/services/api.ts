@@ -70,4 +70,14 @@ export const reclamations = {
     api.patch<Reclamation>(`/reclamations/${id}/status`, { status }),
 };
 
+// Users API (Admin)
+export const users = {
+  getAll: () => api.get<User[]>('/users'),
+  updateRole: (id: string, role: 'user' | 'admin') =>
+    api.patch<User>(`/users/${id}/role`, { role }),
+  deleteUser: (id: string) => api.delete(`/users/${id}`),
+  create: (data: { email: string; password: string; role?: 'user' | 'admin' }) =>
+    api.post<User>('/users', data),
+};
+
 export default api; 
